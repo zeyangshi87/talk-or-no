@@ -15,12 +15,12 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 def main(page: ft.Page):
-    page.title = "李辉鸿聊天室 (云端同步版)"
+    page.title = "zeyangshi聊天室 (云端同步版)"
     page.theme_mode = ft.ThemeMode.LIGHT
 
     # 你的名字（简单起见，我们随机生成或者是固定的）
     # 如果你想区分是谁，可以在发给朋友的代码里改成 "朋友"
-    my_name = "lihuihong"
+    my_name = "shizeyng"
 
     # 聊天列表
     chat_list = ft.ListView(
@@ -120,6 +120,7 @@ def main(page: ft.Page):
     # 启动后台线程，自动去拉取新消息
     t = threading.Thread(target=check_new_messages, daemon=True)
     t.start()
+
 
 
 ft.app(main)
