@@ -23,14 +23,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    # 修改点1：直接指定安装报错里要求的 3.24.5 版本
     - name: Setup Flet Build Environment
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.19.0'
+        flutter-version: '3.24.5'
+        channel: 'stable'
 
+    # 修改点2：加上 "yes |" 这个魔法命令，强制自动输入 'y'
     - name: Build APK
       run: |
-        flet build apk --verbose
+        yes | flet build apk --verbose
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
